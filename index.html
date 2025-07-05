@@ -2,25 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>RNS Yukti</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RNS Yukti | Ayurveda for Wellness</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>RNS Yukti</h1>
-    <button id="themeToggle">🌞 Light / Dark</button>
+    <div class="container">
+      <h1>RNS Yukti</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h2>Welcome to Ayurveda</h2>
-    <p>Healing through nature.</p>
-  </main>
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h2>Healing with the Power of Ayurveda</h2>
+      <p>Discover nature's secret formulas for your wellness journey.</p>
+      <a href="#products" class="cta">Shop Now</a>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 RNS Yukti</p>
+  <section class="products" id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x250?text=Gas-Empt" alt="Gas-Empt">
+        <h3>Gas-Empt</h3>
+        <p>Gastric & Digestive Support with Amalaki, Shatavari, Yashtimadhu</p>
+        <p class="price">₹450</p>
+        <button onclick="addToCart('Gas-Empt', 450)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x250?text=Kasa-Off" alt="Kasa-Off">
+        <h3>Kasa-Off</h3>
+        <p>Relief for Cold, Cough & Bronchitis with Pippali, Vasa, Yashtimadhu</p>
+        <p class="price">₹444</p>
+        <button onclick="addToCart('Kasa-Off', 444)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x250?text=Immune-It" alt="Immune-It">
+        <h3>Immune-It</h3>
+        <p>Immunity Booster with Pippali, Loha Bhasma, Yashtimadhu</p>
+        <p class="price">₹348</p>
+        <button onclick="addToCart('Immune-It', 348)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: ₹0</p>
+  </section>
+
+  <footer id="contact">
+    <p>© 2025 RNS Yukti | All rights reserved | Made in India</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    let cart = [];
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartList = document.getElementById('cart-items');
+      const totalDisplay = document.getElementById('total');
+      cartList.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.product} - ₹${item.price}`;
+        cartList.appendChild(li);
+        total += item.price;
+      });
+
+      totalDisplay.textContent = `Total: ₹${total}`;
+    }
+  </script>
 </body>
 </html>
