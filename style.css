@@ -208,3 +208,47 @@ footer {
   opacity: 0;
   animation-delay: 0.5s;
 }
+
+/* Founder Section */
+.founder {
+  padding: 60px 20px;
+  background: #fefcf7;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+.founder-profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.founder-profile img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.founder-info {
+  max-width: 600px;
+  text-align: left;
+}
+.founder-info p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Navigation - Active Link */
+nav a.active {
+  text-decoration: underline;
+}
+
+/* Slide Animate Delay */
+.animate-slide {
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.5s;
+}
